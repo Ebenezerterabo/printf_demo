@@ -12,9 +12,6 @@ int check_cases(va_list ap, const char *format)
 {
 	int len = 0;
 
-	if (*format == 'd' || *format == 'i')
-		put_int(va_arg(ap, int));
-
 	switch(*format)
 	{
 	case 'c':
@@ -24,8 +21,7 @@ int check_cases(va_list ap, const char *format)
 		len += print_str(ap);
 		break;
 	case '%':
-		 _putchr('%');
-		break;
+		len += print_char(ap);
 	case '\0':
 		return (-1);
 	default:

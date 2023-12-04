@@ -1,0 +1,16 @@
+#include "main.h"
+
+int main(void)
+{
+	int len;
+
+	//len = _printf("Enoch is a boy");
+
+//	_printf("\n%c %s %%", 'd', "my printf project");
+
+	len = printf("%%");
+
+	printf("\nlen = %d", len);
+
+
+}
