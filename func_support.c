@@ -11,7 +11,7 @@ int print_char(va_list ap)
 {
 	char ch = va_arg(ap, int);
 
-	putchar(ch);
+	write(1, &ch, 1);
 	return (1);
 }
 
@@ -26,10 +26,35 @@ int print_str(va_list ap)
 {
 	char *str = va_arg(ap, char*);
 
-	if (str != NULL)
-		fputs(str, stdout);
+	if (*str != '\0')
+		write(1, str, _strlen(str));
 	else
-		fputs("(nil)", stdout);
+		write(1, "(nil)", 5);
 
-	return (strlen(str));
+	return (_strlen(str));
+}
+
+int _strlen(char *str)
+{
+	int len = 0;
+
+	while (*str)
+	{
+		len++;
+		str++;
+	}
+
+	return (len);
+}
+
+/**
+ * _putchr - A function that prints a character
+ * @c: the character
+ *
+ * Return: integer
+ */
+
+int _putchr(char c)
+{
+	return(write(1, &c, 1));
 }
