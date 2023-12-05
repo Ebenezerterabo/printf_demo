@@ -13,7 +13,10 @@ int check_cases(va_list ap, const char *format)
 	int len = 0;
 
 	if (*format == 'd' || *format == 'i')
-		put_int(va_arg(ap, int));
+	{
+		len += put_int(va_arg(ap, int));
+		return len;
+	}
 
 	switch(*format)
 	{
